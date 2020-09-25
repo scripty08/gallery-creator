@@ -5,10 +5,8 @@ import { getImageSizes } from './helper';
 const Container = styled.div`
   display: inline-block;
   position: relative;
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
-  top: ${props => props.top}%;
-  left: ${props => props.left}%;
+  width: ${props => props.width};
+  height: ${props => props.height};
   justify-content: center;
   cursor: pointer;
   ${props => (props.active) ? 'background: black; color: white' : 'background: white' }
@@ -40,15 +38,10 @@ export const Item = (props) => {
         onClick({ _id });
     };
 
-    console.log(frameUrl, ' frameUrl <------------');
-
     return (
         <Container
             active={active}
-            width={width}
-            height={height}
-            top={position.top}
-            left={position.left}
+            style={{width: width + 'px', height: height + 'px'}}
             onClick={onItemClick}
         >
             <Frame

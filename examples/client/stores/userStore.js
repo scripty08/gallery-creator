@@ -14,56 +14,35 @@ export default createStore({
                             {
                                 _id: 'x1',
                                 size: '40x50',
-                                position: {top: 2.4, left:16.39},
+                                position: {top: 1, left:100},
                                 url: '',
                                 active: false
                             },
                             {
                                 _id: 'x2',
                                 size: '70x100',
-                                position: {top: 0, left:31.6},
+                                position: {top: 0, left:511},
                                 url: '',
                                 active: false
                             },
                             {
                                 _id: 'x3',
                                 size: '50x70',
-                                position: {top: 1.5, left:56.6},
-                                url: '',
-                                active: false
-                            },
-                            {
-                                _id: 'x4',
-                                size: '50x70',
-                                position: {top: 34.3, left:13.3},
+                                position: {top: 0, left:843},
                                 url: '',
                                 active: false
                             },
                             {
                                 _id: 'x5',
                                 size: '30x40',
-                                position: {top: 58.9, left:31.6},
+                                position: {top: 0, left:1081},
                                 url: '',
                                 active: false
                             },
                             {
                                 _id: 'x6',
                                 size: '21x30',
-                                position: {top: 58.8, left:47.6},
-                                url: '',
-                                active: false
-                            },
-                            {
-                                _id: 'x7',
-                                size: '40x50',
-                                position: {top: 43, left:56.6},
-                                url: '',
-                                active: false
-                            },
-                            {
-                                _id: 'x8',
-                                size: '30x40',
-                                position: {top: 43, left:71.99},
+                                position: {top: 279, left:1081},
                                 url: '',
                                 active: false
                             }

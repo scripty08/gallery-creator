@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 import { Item } from './Item';
+import Draggable from 'react-draggable';
+import { getImageSizes } from './helper';
 
 const Container = styled.div`
   display: inline-block;
@@ -31,26 +33,39 @@ export const Gallery = (props) => {
     const { userData, onClick, galleryBackgroundUrl } = props;
     const imageWalls = userData.imageWalls[0];
 
-    const onItemClick = ({_id}) => {
+    const onItemClick = ({ _id }) => {
         setId(_id);
-        onClick({_id})
+        onClick({ _id })
     }
 
     const items = imageWalls.images.map((item, idx) => {
         if (id === item._id) {
             item.active = true;
         }
+        const { width, height } = getImageSizes(item.size);
+
         return (
-            <Item
-                key={idx}
-                url={item.url}
-                frameUrl={item.frameUrl}
-                active={(id === item._id) ? 'active': ''}
-                size={item.size}
-                position={item.position}
-                onClick={onItemClick}
-                _id={item._id}
-            />
+
+            <Draggable handle="strong" defaultPosition={{x: item.position.left, y: item.position.top}} className={'draggableContainer'}>
+                <div className="box no-cursor" style={{position: 'absolute'}}>
+                    <strong className="cursor">
+                        <div>Drag here</div>
+                    </strong>
+                    <div>
+                        <Item
+                            key={idx}
+                            url={item.url}
+                            frameUrl={item.frameUrl}
+                            active={(id === item._id) ? 'active' : ''}
+                            size={item.size}
+                            position={item.position}
+                            onClick={onItemClick}
+                            _id={item._id}
+                        />
+                    </div>
+                </div>
+            </Draggable>
+
         )
     });
 
