@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getImageSizes } from './helper';
+import { CloseButton } from '@scripty/react-buttons';
 
 const Container = styled.div`
   display: inline-block;

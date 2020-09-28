@@ -24,7 +24,7 @@
   "dependencies": {
     "@atlaskit/css-reset": "^6.0.0",
     "@scripty/board": "^0.1.14-0",
-    "@scripty/react-buttons": "^0.1.8",
+    "@scripty/react-buttons": "^0.1.9",
     "@scripty/react-card": "^0.1.9",
     "@scripty/styles": "^0.1.40",
     "nanoid": "^3.1.10",

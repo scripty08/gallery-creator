@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Item } from './Item';
 import Draggable from 'react-draggable';
 import { getImageSizes } from './helper';
+import { CloseButton, MoveButton, SaveButton } from '@scripty/react-buttons';
 
 const Container = styled.div`
   display: inline-block;
@@ -28,6 +29,15 @@ const ItemContainer = styled.div`
   height: 77%;
 `;
 
+const Toolbar = styled.div`
+  display: inline-block;
+  top: -10px;
+  right: -10px;
+  opacity: 0.8;
+  position: absolute;
+  z-index: 5000;
+`;
+
 export const Gallery = (props) => {
     const [id, setId] = useState(false)
     const { userData, onClick, galleryBackgroundUrl } = props;
@@ -44,6 +54,14 @@ export const Gallery = (props) => {
         }
         const { width, height, top, left, skeletonUrl } = getImageSizes(item.size);
 
+        const onCloseBtnClick = () => {
+            delete imageWalls.images[idx];
+        };
+
+        const onSaveBtnClick = () => {
+            setId(false)
+        }
+
         return (
 
             <Draggable
@@ -52,9 +70,20 @@ export const Gallery = (props) => {
             >
 
                 <div className="box no-cursor" style={{position: 'absolute', width: width, left: left, top: top}}>
-                    <strong className="cursor">
-                        <div>Drag here</div>
-                    </strong>
+
+                    {(id === item._id) ?
+
+                        <strong className="cursor">
+                            <Toolbar>
+                                <MoveButton style={{ cursor:'move' }} color={'#fff'} iconBtn />
+                                <SaveButton onClick={onSaveBtnClick} color={'#12a525'} iconBtn />
+                                <CloseButton onClick={onCloseBtnClick} color={'red'} iconBtn />
+                            </Toolbar>
+                        </strong>
+
+                        : null
+
+                        }
 
                     <Item
                         key={idx}
