@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const Frame = styled.div`
-    position: absolute;
+
     width: 100%;
     height: 100%;
     border: 1px solid black;
@@ -31,7 +31,7 @@ const Frame = styled.div`
 
 export const Item = (props) => {
 
-    const { active, position, _id, onClick, url, frameUrl, size } = props;
+    const { active, skeletonUrl, _id, onClick, url, frameUrl, size } = props;
     const { width, height } = getImageSizes(size);
 
     const onItemClick = () => {
@@ -41,13 +41,12 @@ export const Item = (props) => {
     return (
         <Container
             active={active}
-            style={{width: width + 'px', height: height + 'px'}}
             onClick={onItemClick}
         >
             <Frame
                 frameUrl={frameUrl}
             >
-                { (url) ? <img width={'100%'} height={'100%'} alt={''} src={url} /> : size }
+                { (url) ? <img width={'100%'} height={'auto'} alt={''} src={url} /> : <img width={'100%'} height={'auto'} alt={''} src={skeletonUrl} /> }
             </Frame>
 
         </Container>

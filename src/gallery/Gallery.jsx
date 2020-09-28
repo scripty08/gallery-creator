@@ -42,27 +42,32 @@ export const Gallery = (props) => {
         if (id === item._id) {
             item.active = true;
         }
-        const { width, height } = getImageSizes(item.size);
+        const { width, height, top, left, skeletonUrl } = getImageSizes(item.size);
 
         return (
 
-            <Draggable handle="strong" defaultPosition={{x: item.position.left, y: item.position.top}} className={'draggableContainer'}>
-                <div className="box no-cursor" style={{position: 'absolute'}}>
+            <Draggable
+                handle="strong"
+                className={'draggableContainer'}
+            >
+
+                <div className="box no-cursor" style={{position: 'absolute', width: width, left: left, top: top}}>
                     <strong className="cursor">
                         <div>Drag here</div>
                     </strong>
-                    <div>
-                        <Item
-                            key={idx}
-                            url={item.url}
-                            frameUrl={item.frameUrl}
-                            active={(id === item._id) ? 'active' : ''}
-                            size={item.size}
-                            position={item.position}
-                            onClick={onItemClick}
-                            _id={item._id}
-                        />
-                    </div>
+
+                    <Item
+                        key={idx}
+                        url={item.url}
+                        skeletonUrl={skeletonUrl}
+                        frameUrl={item.frameUrl}
+                        active={(id === item._id) ? 'active' : ''}
+                        size={item.size}
+                        position={item.position}
+                        onClick={onItemClick}
+                        _id={item._id}
+                    />
+
                 </div>
             </Draggable>
 
