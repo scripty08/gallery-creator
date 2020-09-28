@@ -2,6 +2,10 @@ const merge = require('webpack-merge');
 const {HotModuleReplacementPlugin} = require('webpack');
 const common = require('./webpack.config.cjs');
 
+let data = [
+    ['URL: ', 'http://localhost:3014'],
+];
+
 const config = {
     mode: 'development',
     devtool: 'eval-source-map',
@@ -14,7 +18,7 @@ const config = {
         }
     },
     plugins: [
-        new HotModuleReplacementPlugin()
+        new HotModuleReplacementPlugin(),
     ],
     watchOptions: {
         poll: 1000,
