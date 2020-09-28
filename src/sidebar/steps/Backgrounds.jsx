@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Button } from '../../lib/Button';
+import { Button } from '@scripty/react-buttons';
 import styled from 'styled-components';
 
 const ImageContainer = styled.div`
@@ -8,19 +8,11 @@ const ImageContainer = styled.div`
     cursor: pointer;
 `;
 
-const NavbarBottom = styled.div`
-    padding: 15px 15px;
-    position: absolute;
-    bottom: -10px;
-    width: 349px;
-    height: 50px;
-    background-color: #f5f5f5;
-`;
-
 const Container = styled.div`
     position: relative;
-    width: 380px;
-    height: calc(100vh - 140px);
+    width: 305px;
+    padding-top: 20px;
+    height: calc(100vh - 110px);
     overflow-y: scroll;
     top: 40px;
     bottom: 0;
@@ -42,14 +34,23 @@ const Container = styled.div`
 `;
 
 const NavbarTop = styled.div`
-    padding: 10px 20px;
+    padding: 10px 15px;
     line-height: 20px;
     position: absolute;
     top: 0;
-    width: 340px;
+    width: 275px;
     height: 20px;
     background-color: #f5f5f5;
     z-index: 5000;
+`;
+
+const NavbarBottom = styled.div`
+    padding: 15px 15px;
+    position: absolute;
+    bottom: 0;
+    width: 275px;
+    height: 25px;
+    background-color: #f5f5f5;
 `;
 
 export const Backgrounds = (props) => {
@@ -68,7 +69,7 @@ export const Backgrounds = (props) => {
 
         return (
             <ImageContainer key={idx} onClick={onImageClick}>
-                <img src={rec.url} width={rec.width} height={rec.height} />
+                <img src={rec.url} width={250} height={140} />
             </ImageContainer>
         );
     });
@@ -84,7 +85,7 @@ export const Backgrounds = (props) => {
             </Container>
 
             <NavbarBottom>
-                <Button onClick={onButtonClick}>Weiter</Button>
+                <Button onClick={onButtonClick} color={'#000'} style={{width:'100%'}}>Weiter</Button>
             </NavbarBottom>
         </Fragment>
     )

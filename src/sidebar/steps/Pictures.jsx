@@ -1,17 +1,20 @@
 import React, { Fragment } from 'react';
-import { Button } from '../../lib/Button';
 import styled from 'styled-components';
+import { Button } from '@scripty/react-buttons';
 
 const ImageContainer = styled.div`
     text-align: center;
     margin-bottom: 5px;
     cursor: pointer;
+    float:left;
+    margin: 2px;
 `;
 
 const Container = styled.div`
     position: relative;
-    width: 380px;
-    height: calc(100vh - 140px);
+    width: 305px;
+    padding-top: 10px;
+    height: calc(100vh - 110px);
     overflow-y: scroll;
     top: 40px;
     bottom: 0;
@@ -33,11 +36,11 @@ const Container = styled.div`
 `;
 
 const NavbarTop = styled.div`
-    padding: 10px 20px;
+    padding: 10px 15px;
     line-height: 20px;
     position: absolute;
     top: 0;
-    width: 340px;
+    width: 275px;
     height: 20px;
     background-color: #f5f5f5;
     z-index: 5000;
@@ -46,9 +49,9 @@ const NavbarTop = styled.div`
 const NavbarBottom = styled.div`
     padding: 15px 15px;
     position: absolute;
-    bottom: -10px;
-    width: 349px;
-    height: 100px;
+    bottom: 0;
+    width: 275px;
+    height: 55px;
     background-color: #f5f5f5;
 `;
 
@@ -72,7 +75,7 @@ export const Pictures = (props) => {
 
         return (
             <ImageContainer key={idx} onClick={onImageClick}>
-                <img src={rec.url} width={rec.width} height={rec.height} />
+                <img src={rec.url} width={90} height={130} />
             </ImageContainer>
         );
     });
@@ -88,8 +91,8 @@ export const Pictures = (props) => {
             </Container>
 
             <NavbarBottom>
-                <Button onClick={onForwardButtonClick}>Weiter</Button>
-                <Button onClick={onBackButtonClick}>Zurück</Button>
+                <Button style={{marginBottom:5, width:'100%'}} onClick={onForwardButtonClick} color={'#000'}>Weiter</Button>
+                <Button  style={{width:'100%'}} onClick={onBackButtonClick}>Zurück</Button>
             </NavbarBottom>
         </Fragment>
     )

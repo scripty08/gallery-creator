@@ -5,8 +5,7 @@ import { Pictures } from './steps/Pictures';
 import { Frames } from './steps/Frames';
 
 const SidebarContainer = styled.div`
-    width: 380px;
-    top: 80px;
+    width: 305px;
     float: left;
     display: inline-block;
 `;

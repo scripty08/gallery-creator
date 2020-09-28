@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import styled from 'styled-components';
 import { Item } from './Item';
 import Draggable from 'react-draggable';
 import { getImageSizes } from './helper';
 import { CloseButton, MoveButton, SaveButton } from '@scripty/react-buttons';
+import { Toolbar } from '../toolbar/Toolbar';
 
 const Container = styled.div`
   display: inline-block;
   top: 0px;
-  padding: 15px;
+  right: 0;
   position: absolute;
-  width: calc(100% - 410px);
-  height: 100%;
+  width: calc(100% - 305px);
+  height: 100vh;
   background: ${props => `url("${props.url}");`}
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,7 +30,7 @@ const ItemContainer = styled.div`
   height: 77%;
 `;
 
-const Toolbar = styled.div`
+const ToolbarContainer = styled.div`
   display: inline-block;
   top: -10px;
   right: -10px;
@@ -63,48 +64,49 @@ export const Gallery = (props) => {
         }
 
         return (
+            <Fragment>
+                <Draggable
+                    handle="strong"
+                    className={'draggableContainer'}
+                >
 
-            <Draggable
-                handle="strong"
-                className={'draggableContainer'}
-            >
+                    <div className="box no-cursor" style={{ position: 'absolute', width: width, left: left, top: top }}>
 
-                <div className="box no-cursor" style={{position: 'absolute', width: width, left: left, top: top}}>
+                        {(id === item._id) ?
 
-                    {(id === item._id) ?
+                            <strong className="cursor">
+                                <ToolbarContainer>
+                                    <MoveButton style={{ cursor: 'move' }} color={'#fff'} iconBtn/>
+                                    <SaveButton onClick={onSaveBtnClick} color={'#12a525'} iconBtn/>
+                                    <CloseButton onClick={onCloseBtnClick} color={'red'} iconBtn/>
+                                </ToolbarContainer>
+                            </strong>
 
-                        <strong className="cursor">
-                            <Toolbar>
-                                <MoveButton style={{ cursor:'move' }} color={'#fff'} iconBtn />
-                                <SaveButton onClick={onSaveBtnClick} color={'#12a525'} iconBtn />
-                                <CloseButton onClick={onCloseBtnClick} color={'red'} iconBtn />
-                            </Toolbar>
-                        </strong>
-
-                        : null
+                            : null
 
                         }
 
-                    <Item
-                        key={idx}
-                        url={item.url}
-                        skeletonUrl={skeletonUrl}
-                        frameUrl={item.frameUrl}
-                        active={(id === item._id) ? 'active' : ''}
-                        size={item.size}
-                        position={item.position}
-                        onClick={onItemClick}
-                        _id={item._id}
-                    />
+                        <Item
+                            key={idx}
+                            url={item.url}
+                            skeletonUrl={skeletonUrl}
+                            frameUrl={item.frameUrl}
+                            active={(id === item._id) ? 'active' : ''}
+                            size={item.size}
+                            position={item.position}
+                            onClick={onItemClick}
+                            _id={item._id}
+                        />
 
-                </div>
-            </Draggable>
-
+                    </div>
+                </Draggable>
+            </Fragment>
         )
     });
 
     return (
         <Container url={galleryBackgroundUrl}>
+            <Toolbar/>
             <ItemContainer>{items}</ItemContainer>
         </Container>
     )

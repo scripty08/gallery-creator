@@ -11,15 +11,15 @@ const ImageContainer = styled.div`
 const NavbarBottom = styled.div`
     padding: 15px 15px;
     position: absolute;
-    bottom: -10px;
-    width: 349px;
-    height: 50px;
+    bottom: 45px;
+    width: 275px;
+    height: 55px;
     background-color: #f5f5f5;
 `;
 
 const Container = styled.div`
     position: relative;
-    width: 380px;
+    width: 305px;
     height: calc(100vh - 140px);
     overflow-y: scroll;
     top: 40px;
@@ -42,11 +42,11 @@ const Container = styled.div`
 `;
 
 const NavbarTop = styled.div`
-    padding: 10px 20px;
+    padding: 10px 15px;
     line-height: 20px;
     position: absolute;
     top: 0;
-    width: 340px;
+    width: 275px;
     height: 20px;
     background-color: #f5f5f5;
     z-index: 5000;
