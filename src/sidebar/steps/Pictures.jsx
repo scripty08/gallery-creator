@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { Button } from '@scripty/react-buttons';
+import { AddButton, Button, RightButton } from '@scripty/react-buttons';
+import { nanoid } from 'nanoid';
 
 const ImageContainer = styled.div`
     text-align: center;
@@ -80,10 +81,22 @@ export const Pictures = (props) => {
         );
     });
 
+    const onAddBtnClick = (category) => {
+        console.log(category, ' category ---------------------- ');
+    }
+
     return (
         <Fragment>
             <NavbarTop>
-                Choose a Background
+                <RightButton label={'Filter'} style={{marginRight: 5}} items={[
+                    <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, 'Alle')}>Alle</a>,
+                    <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, 'Arabisch')}>Arabisch</a>,
+                    <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, 'Tiere')}>Tiere</a>,
+                    <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, 'Kunst')}>Kunst</a>,
+                    <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, 'Sprüche')}>Sprüche</a>
+                ]} />
+
+                <AddButton label={'Portrait'} />
             </NavbarTop>
 
             <Container>

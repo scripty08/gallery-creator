@@ -77,7 +77,7 @@ export const Backgrounds = (props) => {
     return (
         <Fragment>
             <NavbarTop>
-                Choose a Background
+                Hintergrund wählen:
             </NavbarTop>
 
             <Container>

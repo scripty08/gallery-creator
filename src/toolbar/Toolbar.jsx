@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 import { AddButton, SaveButton } from '@scripty/react-buttons';
 import { useStore } from '@scripty/react-store';
@@ -20,15 +20,13 @@ export const Toolbar = (props) => {
         console.log('onSaveBtnClick', '  ---------------------- ');
     }
 
-    const onAddBtnClick = (e) => {
+    const onAddBtnClick = (size) => {
         const imageData = userStore.getAt(0);
-        console.log(e, ' e ---------------------- ');
-        console.log(imageData, ' e ---------------------- ');
 
         imageData.imageWalls[0].images.push({
-            _id: 'x34',
-            size: '40x50',
-            position: {top: 1, left:0},
+            _id: nanoid(),
+            size: size,
+            position: {top: 1, left:1},
             url: '',
             active: false
         });
@@ -38,9 +36,12 @@ export const Toolbar = (props) => {
     return (
         <ToolbarContainer>
             <SaveButton color={'#0b9e06'} label={'Speichern'} style={{marginRight: 5}} onClick={onSaveBtnClick}/>
-            <AddButton onClick={onAddBtnClick} label={'Bild Hinzufügen'} style={{marginRight: 5}} items={[
-                <a aria-current={'page'} href={'#'} className={'active'}>50x70</a>,
-                <a aria-current={'page'} href={'#'} className={'active'}>100x70</a>
+            <AddButton label={'Bild Hinzufügen'} style={{marginRight: 5}} items={[
+                <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, '21x30')}>21x30</a>,
+                <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, '30x40')}>30x40</a>,
+                <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, '40x50')}>40x50</a>,
+                <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, '50x70')}>50x70</a>,
+                <a aria-current={'page'} href={'#'} className={'active'} onClick={onAddBtnClick.bind(null, '70x100')}>70x100</a>
             ]} />
             <AddButton label={'Neu Erstellen'} style={{marginRight: 5}} />
         </ToolbarContainer>
