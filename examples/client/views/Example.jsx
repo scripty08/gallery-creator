@@ -40,6 +40,10 @@ export const Example = () => {
         setActiveGalleryItemId(_id);
     }
 
+    const onGalleryChange = ({ imageWalls }) => {
+        imageStore.setData(imageWalls);
+    }
+
     return (
         <Fragment>
             <Layout
@@ -51,6 +55,7 @@ export const Example = () => {
                 onFramesClick={onFramesClick}
                 onGalleryItemClick={onGalleryItemClick}
                 galleryBackgroundUrl={galleryBackgroundUrl}
+                onGalleryChange={onGalleryChange}
             />
         </Fragment>
     )

@@ -13,7 +13,8 @@ export const Content = (props) => {
         onPicturesClick,
         onFramesClick,
         step,
-        setStep
+        setStep,
+        onGalleryChange
     } = props;
 
     return (
@@ -30,6 +31,7 @@ export const Content = (props) => {
                 userData={data.userData}
                 onClick={onGalleryItemClick}
                 galleryBackgroundUrl={galleryBackgroundUrl}
+                onChange={onGalleryChange}
             />
         </div>
     )

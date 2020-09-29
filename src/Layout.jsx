@@ -10,6 +10,7 @@ export const Layout = (props) => {
         onFramesClick,
         onGalleryItemClick,
         galleryBackgroundUrl,
+        onGalleryChange,
         step,
         setStep
     } = props;
@@ -24,6 +25,7 @@ export const Layout = (props) => {
             onFramesClick={onFramesClick}
             onGalleryItemClick={onGalleryItemClick}
             galleryBackgroundUrl={galleryBackgroundUrl}
+            onGalleryChange={onGalleryChange}
         />
     )
 }

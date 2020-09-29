@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Item } from './Item';
 import Draggable from 'react-draggable';
 import { getImageSizes } from './helper';
-import { CloseButton, MoveButton, SaveButton } from '@scripty/react-buttons';
+import { CloseButton, MoveButton, OkButton } from '@scripty/react-buttons';
 import { Toolbar } from '../toolbar/Toolbar';
 
 const Container = styled.div`
@@ -41,7 +41,7 @@ const ToolbarContainer = styled.div`
 
 export const Gallery = (props) => {
     const [id, setId] = useState(false)
-    const { userData, onClick, galleryBackgroundUrl } = props;
+    const { userData, onClick, galleryBackgroundUrl, onChange } = props;
     const imageWalls = userData.imageWalls[0];
 
     const onItemClick = ({ _id }) => {
@@ -57,6 +57,7 @@ export const Gallery = (props) => {
 
         const onCloseBtnClick = () => {
             delete imageWalls.images[idx];
+            onChange({ imageWalls });
         };
 
         const onSaveBtnClick = () => {
@@ -77,7 +78,7 @@ export const Gallery = (props) => {
                             <strong className="cursor">
                                 <ToolbarContainer>
                                     <MoveButton style={{ cursor: 'move' }} color={'#fff'} iconBtn/>
-                                    <SaveButton onClick={onSaveBtnClick} color={'#12a525'} iconBtn/>
+                                    <OkButton onClick={onSaveBtnClick} color={'#12a525'} iconBtn/>
                                     <CloseButton onClick={onCloseBtnClick} color={'red'} iconBtn/>
                                 </ToolbarContainer>
                             </strong>
