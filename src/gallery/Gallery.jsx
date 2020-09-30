@@ -53,7 +53,7 @@ export const Gallery = (props) => {
         if (id === item._id) {
             item.active = true;
         }
-        const { width, height, top, left, skeletonUrl } = getImageSizes(item.size);
+        const { width, top, left, skeletonUrl } = getImageSizes(item.size, item.new);
 
         const onCloseBtnClick = () => {
             delete imageWalls.images[idx];

@@ -2,6 +2,7 @@ import React from 'react';
 import { Sidebar } from '../sidebar/Sidebar';
 import './Content.scss';
 import { Gallery } from '../gallery/Gallery';
+import { Filter } from '../sidebar/steps/Filter';
 
 export const Content = (props) => {
 
@@ -27,6 +28,7 @@ export const Content = (props) => {
                 step={step}
                 setStep={setStep}
             />
+
             <Gallery
                 userData={data.userData}
                 onClick={onGalleryItemClick}

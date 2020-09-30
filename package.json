@@ -22,6 +22,7 @@
     "compile": "node node_modules/@babel/cli/bin/babel.js src --out-dir lib --copy-files"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "@atlaskit/css-reset": "^6.0.0",
     "@scripty/board": "^0.1.14-0",
     "@scripty/react-buttons": "^0.1.9",

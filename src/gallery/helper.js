@@ -1,34 +1,34 @@
-export const getImageSizes = (imageSize) => {
+export const getImageSizes = (imageSize, newImage) => {
 
     const sizes = {
         '21x30': {
             width: '7.677%',
-            top: '10%',
-            left: '70%',
+            top: (newImage) ? '1%' : '10%',
+            left: (newImage) ? '1%' : '70%',
             skeletonUrl: 'https://martemedia.ch/wp-content/uploads/2015/06/placeholder-2-500x700.jpg'
         },
         '30x40': {
             width: '14.06%',
-            top: '30%',
-            left: '70%',
+            top: (newImage) ? '1%' : '30%',
+            left: (newImage) ? '1%' : '70%',
             skeletonUrl: 'https://martemedia.ch/wp-content/uploads/2015/06/placeholder-2-500x700.jpg'
         },
         '40x50': {
             width: '16.39%',
-            top: '4%',
-            left: '82%',
+            top: (newImage) ? '1%' : '4%',
+            left: (newImage) ? '1%' : '82%',
             skeletonUrl: 'https://martemedia.ch/wp-content/uploads/2015/06/placeholder-2-500x700.jpg'
         },
         '50x70': {
             width: '17.1%',
-            top: '4%',
-            left: '105%',
+            top: (newImage) ? '1%' : '4%',
+            left: (newImage) ? '1%' : '105%',
             skeletonUrl: 'https://martemedia.ch/wp-content/uploads/2015/06/placeholder-2-500x700.jpg'
         },
         '70x100': {
             width: '23.5%',
-            top: '7%',
-            left: '37%',
+            top: (newImage) ? '1%' : '7%',
+            left: (newImage) ? '1%' : '37%',
             skeletonUrl: 'https://martemedia.ch/wp-content/uploads/2015/06/placeholder-2-500x700.jpg'
         },
     }

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { AddButton, Button, RightButton } from '@scripty/react-buttons';
-import { nanoid } from 'nanoid';
+import { Toolbar } from '../Toolbar';
 
 const ImageContainer = styled.div`
     text-align: center;
@@ -15,9 +15,9 @@ const Container = styled.div`
     position: relative;
     width: 305px;
     padding-top: 10px;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 170px);
     overflow-y: scroll;
-    top: 40px;
+    top: 0px;
     bottom: 0;
 
     .image-container {
@@ -39,10 +39,10 @@ const Container = styled.div`
 const NavbarTop = styled.div`
     padding: 10px 15px;
     line-height: 20px;
-    position: absolute;
+    position: relative;
     top: 0;
     width: 275px;
-    height: 20px;
+    height: 25px;
     background-color: #f5f5f5;
     z-index: 5000;
 `;
@@ -98,6 +98,8 @@ export const Pictures = (props) => {
 
                 <AddButton label={'Portrait'} />
             </NavbarTop>
+
+            <Toolbar setStep={setStep} />
 
             <Container>
                 {images}

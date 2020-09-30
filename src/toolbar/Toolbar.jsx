@@ -28,7 +28,8 @@ export const Toolbar = (props) => {
             size: size,
             position: {top: 1, left:1},
             url: '',
-            active: false
+            active: false,
+            new: true
         });
         userStore.setData(imageData);
     }
