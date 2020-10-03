@@ -12,7 +12,9 @@ export const Layout = (props) => {
         galleryBackgroundUrl,
         onGalleryChange,
         step,
-        setStep
+        setStep,
+        filter,
+        setFilter
     } = props;
 
     return (
@@ -20,6 +22,8 @@ export const Layout = (props) => {
             data={data}
             step={step}
             setStep={setStep}
+            filter={filter}
+            setFilter={setFilter}
             onBackgroundsClick={onBackgroundsClick}
             onPicturesClick={onPicturesClick}
             onFramesClick={onFramesClick}

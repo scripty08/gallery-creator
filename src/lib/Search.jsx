@@ -35,7 +35,7 @@ const IconContainer = styled.span`
 
 export const Search = (props) => {
 
-    const { onChange } = props;
+    const { onChange, placeholder = 'Suche...' } = props;
 
     const onInput = (e) => {
         onChange(e.target.value)
@@ -44,7 +44,7 @@ export const Search = (props) => {
     return (
         <InputContainer>
             <IconContainer><SearchOutlined style={{fontSize: 20}} /></IconContainer>
-            <Input onInput={onInput} placeholder={'Suche...'}/>
+            <Input onInput={onInput} placeholder={placeholder}/>
         </InputContainer>
     )
 }

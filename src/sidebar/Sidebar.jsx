@@ -13,18 +13,18 @@ const SidebarContainer = styled.div`
 
 export const Sidebar = (props) => {
 
-    const { step, setStep } = props;
+    const { step, setStep, setFilter, filter } = props;
 
     const renderStep = () => {
         switch (step) {
             case 'backgrounds':
                 return <Backgrounds {...props} setStep={setStep} />;
             case 'pictures':
-                return <Pictures {...props} setStep={setStep} />
+                return <Pictures {...props} setStep={setStep} filter={filter} setFilter={setFilter}/>
             case 'frames':
                 return <Frames {...props} setStep={setStep} />
             case 'filter':
-                return <Filter {...props} setStep={setStep} />
+                return <Filter {...props} setStep={setStep} filter={filter} setFilter={setFilter} />
         }
     }
 

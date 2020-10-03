@@ -3,6 +3,7 @@ import { Sidebar } from '../sidebar/Sidebar';
 import './Content.scss';
 import { Gallery } from '../gallery/Gallery';
 import { Filter } from '../sidebar/steps/Filter';
+import { Layout } from '../Layout';
 
 export const Content = (props) => {
 
@@ -15,6 +16,8 @@ export const Content = (props) => {
         onFramesClick,
         step,
         setStep,
+        filter,
+        setFilter,
         onGalleryChange
     } = props;
 
@@ -27,6 +30,8 @@ export const Content = (props) => {
                 onFramesClick={onFramesClick}
                 step={step}
                 setStep={setStep}
+                filter={filter}
+                setFilter={setFilter}
             />
 
             <Gallery

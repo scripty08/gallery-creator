@@ -10,6 +10,10 @@ export const Example = () => {
     const { userStore } = useStore('userStore');
     const imageData = imageStore.getAt(0);
     const userData = userStore.getAt(0);
+    const [ filter , setFilter ] = useState({
+        categories:  [],
+        colors: []
+    });
 
     useEffect(() => {
         imageStore.proxy.read({ category: 'all' });
@@ -44,12 +48,16 @@ export const Example = () => {
         imageStore.setData(imageWalls);
     }
 
+    console.log(filter, ' filter ---------------------- ');
+
     return (
         <Fragment>
             <Layout
                 data={{ imageData, userData }}
                 step={step}
                 setStep={setStep}
+                filter={filter}
+                setFilter={setFilter}
                 onBackgroundsClick={onBackgroundsClick}
                 onPicturesClick={onPicturesClick}
                 onFramesClick={onFramesClick}

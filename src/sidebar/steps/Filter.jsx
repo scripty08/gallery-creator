@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { Search } from '../Search';
+import { Search } from '../../lib/Search';
 import { Button } from '@scripty/react-buttons';
+import { Checkbox } from '../../lib/Checkbox';
 
 const Container = styled.div`
     position: relative;
@@ -48,15 +49,50 @@ const NavbarBottom = styled.div`
     background-color: #f5f5f5;
 `;
 
-
-
 export const Filter = (props) => {
 
-    const { setStep } = props;
+    const { setStep, setFilter, filter } = props;
+
+    const categories = [
+        'ABSTRAKTE KUNST',
+        'AQUARELLE',
+        'ARCHITEKTUR',
+        'BERGE',
+        'BESTSELLER',
+        'BILDER MIT ZITATEN',
+        'BLUMEN',
+        'BOTANIK',
+        'BUCHSTABEN',
+        'KINDERZIMMERDER',
+        'GLOBETROTTER',
+        'TRENDSETTER',
+        'STÄDTE'
+    ];
 
     const onButtonClick = () => {
         setStep('pictures')
     };
+
+    const getCheckboxes = (checked) => {
+
+
+
+        return categories.map((category, key) => {
+
+            const onCheckboxChange = ({checked, id}) => {
+
+                if (checked) {
+                    filter.categories.push(id);
+                    return setFilter({ ...filter });
+                }
+                delete filter.categories[id];
+                console.log(filter, ' filter ---------------------- ');
+                setFilter({ ...filter });
+            }
+
+            return <Checkbox key={key} id={category} label={category} checked={checked} onChange={onCheckboxChange} />
+        });
+    }
 
     return (
         <Fragment>
@@ -67,9 +103,7 @@ export const Filter = (props) => {
             <Search />
 
             <Container>
-                <div>Kategorie</div>
-                <input type={'checkbox'} />
-                <label>Alle</label>
+                {getCheckboxes(false)}
             </Container>
 
             <NavbarBottom>
